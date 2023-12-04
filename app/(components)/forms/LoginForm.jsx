@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useState} from 'react';
-import authUser from "@/app/api/strapi/public-route/auth";
+import authUser from "@/app/api/strapi/publicRoutes/auth";
 
 export default function LoginForm({className}) {
     const [username, setUsername] = useState(null);

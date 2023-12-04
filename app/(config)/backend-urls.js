@@ -1,20 +1,20 @@
-const STRAPI_TOKEN= localStorage.getItem('token');
-const STRAPI_API='/api'
-const STRAPI_BASE="http://localhost:1337"
+const STRAPI_API = '/api'
+const STRAPI_BASE = "http://localhost:1337"
 
 export const API_URL = (process.env.STRAPI_BASE + process.env.STRAPI_API) || (STRAPI_BASE + STRAPI_API)
 
 /**
  * By default, create a token with authorization role and content-type, however,
  * it accepts options if it's desired.
+ * @param token
  * @param options an object indicating headers' hey-value pairs.
  * @returns {{Authorization: string, Accept: string}}   as expected default headers along with optionals.
  */
-export function mkHeaders(options = {}) {
-    const h = ({
-        Authorization: `Bearer ${process.env.STRAPI_TOKEN || STRAPI_TOKEN}`,
-        Accept: 'application/json'
-    })
+export function mkHeaders(token, options = {
+    Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+    Accept: 'application/json'
+}) {
+    const h = ({Authorization: options.Authorization || token, Accept: options.Accept})
     for (let k in options) {
         h[k] = options[k];
     }
