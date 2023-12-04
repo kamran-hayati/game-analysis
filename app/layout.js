@@ -1,4 +1,6 @@
 import "./globals.css";
+import Nav from "@/app/(components)/Layouts/Nav";
+import Footer from "@/app/(components)/Layouts/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -8,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <Nav />
+      {children}
+      <Footer year={new Date().getFullYear()}/>
+      </body>
     </html>
   );
 }
