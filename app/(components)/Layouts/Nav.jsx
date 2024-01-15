@@ -3,26 +3,32 @@
 import Link from "next/link";
 
 import LoginForm from "@/app/(components)/forms/LoginForm";
+import StaticLinks from "@/app/(components)/Layouts/StaticLinks";
+import Image from "next/image";
 
-function Nav() {
+function Nav(props) {
 
     return (
         <nav
-            className='p-2 m-1 mb-0 bg-lime-900 text-green-200 border-green-950 border-2 bg-gradient-radial from-lime-950 via-10% to-lime-700 flex flex-row justify-between shadow-gray-300'>
+            className={`bg-lime-900 text-green-200 border-green-950 border-2
+            bg-gradient-radial from-lime-950 via-10% to-lime-700 shadow-gray-300 
+            justify-between p-2 m-1 mb-0 grid grid-cols-3`}
+        >
             <div
-                className='font-bold text-yellow-400 hover:text-yellow-600 flex'
+                className='min-w-full m-auto'
             >
-                <Link href='/' passHref={true}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                <Link href='/' passHref={true} className="mr-0">
+                    <Image
+                        className="m-auto ml-2 text-center content-center items-center"
                         src='/img/game_controller_480px.png'
                         alt='Game Analysis!'
-                        width={75}
-                        height={75}
+                        width={150}
+                        height={150}
                     />
                 </Link>
             </div>
-            <LoginForm className=''/>
+            <StaticLinks />
+            <LoginForm />
         </nav>
     );
 }
