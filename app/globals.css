@@ -3,25 +3,134 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+    ) rgb(var(--background-start-rgb));
 }
+
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold;
+    }
+
+    h1 {
+        @apply text-4xl;
+        margin: 0 0 5px 0;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    h5 {
+        @apply text-lg;
+    }
+
+    p {
+        @apply text-sm;
+    }
+
+    form {
+        @apply rounded-xl p-4
+    }
+
+    label {
+        @apply mt-4
+    }
+
+    input,
+    select,
+    textarea {
+        @apply m-1 rounded  p-1;
+    }
+}
+
+@layer components {
+    .icon {
+        @apply text-default-text text-xl;
+    }
+
+    .btn {
+        @apply hover:no-underline tracking-wider w-1/2 items-center text-center font-bold cursor-pointer
+        uppercase rounded-md hover:bg-blue-300 content-center m-auto mt-2 text-green-700;
+    }
+
+    .loading {
+        @apply border border-amber-950 bg-amber-300 text-blue-800 content-center text-center items-center
+        m-auto p-1
+    }
+
+    .input-w-full {
+        @apply bg-amber-100 text-blue-800 content-center items-center
+    }
+}
+
+.input-h-35 {
+    min-height: 35px;
+    max-height: 35px;
+}
+
+.icon-close {
+    min-width: 35px;
+    max-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+    border-radius: 5px;
+    border: .35rem solid red;
+    background-color: red;
+    color: white;
+    float: left;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    vertical-align: center;
+}
+
+#interview-panel-left {
+    float: right;
+    border: .2rem solid lightcoral;
+}
+
+#interview-panel-right {
+    border: .2rem solid blueviolet;
+    float: left;
+}
+
+#interview-panel-left, #interview-panel-right {
+    min-height: 20%;
+    max-height: 20%;
+    padding: 1rem;
+}
+
+
